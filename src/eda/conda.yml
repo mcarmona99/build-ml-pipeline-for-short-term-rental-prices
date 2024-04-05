@@ -13,3 +13,5 @@ dependencies:
   - pip:
       - mlflow==2.8.1
       - wandb==0.16.0
+      - ydata-profiling==4.7.0  # Due to an error when importing pandas_profiling
+      - ipywidgets==8.0.4  # Error: widget model not found (https://stackoverflow.com/questions/73715821/jupyter-lab-issue-displaying-widgets-javascript-error)
