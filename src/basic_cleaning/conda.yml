@@ -1,0 +1,12 @@
+name: basic_cleaning
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=23.3.1
+  - gcc  # ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found
+  - gxx  # ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found
+  - pip:
+      - mlflow==2.8.1
+      - wandb==0.16.0
+      - pandas==2.1.3
