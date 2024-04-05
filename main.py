@@ -116,11 +116,17 @@ def go(config: DictConfig):
             )
 
         if "test_regression_model" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-
-            pass
+            # Data split step
+            _ = mlflow.run(
+                # I have to use the path due to "ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found"
+                os.path.join(hydra.utils.get_original_cwd(), "components", "test_regression_model"),
+                "main",
+                parameters={
+                    "mlflow_model": "random_forest_export:prod",
+                    # "test_artifact": "test_data.csv:latest"
+                    "test_dataset": "test_data.csv:latest"
+                },
+            )
 
 
 if __name__ == "__main__":
