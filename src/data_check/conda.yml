@@ -4,10 +4,12 @@ channels:
   - defaults
 dependencies:
   - python=3.10.0
-  - pandas=2.1.3
-  - pytest=6.2.2
-  - scipy=1.5.2
+  - gcc  # ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found
+  - gxx  # ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found
   - pip=23.3.1
   - pip:
       - mlflow==2.8.1
       - wandb==0.16.0
+      - pandas==2.1.3
+      - pytest==8.1.1  # pytest==6.2.2 conflicts the python version
+      - scipy==1.13.0  # scipy=1.5.2 conflicts the python version
